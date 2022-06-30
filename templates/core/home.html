@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "main.css" %}">
+<title>Home Page</title>
+{% endblock head %}
+
+{% block content %}
+<h1>Home Page</h1>
+<h2>Messages</h2>
+{% for message in messages %}
+    <article>
+        <h3>{{ message.content }}</h3>
+        <p>Created {{ message.created_at | naturaltime }}</p>
+        <p>Last updated {{ message.updated_at | naturaltime  }}</p>
+    </article>
+{% empty %}
+    <p>No messages yet :)</p>
+{% endfor %}
+    <img src="{% static "woman.jpg" %}" alt="woman">
+{% endblock content %}
