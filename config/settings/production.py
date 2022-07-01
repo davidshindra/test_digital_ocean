@@ -35,7 +35,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/"
+STATIC_URL = config("AWS_S3_CDN_ENDPOINT_URL")
 
 # Security settings
 CSRF_COOKIE_SECURE = True
